@@ -63,6 +63,7 @@ describe("When a select is created", () => {
             cancelable: true,
           })
         );
+        expect(onChange).toHaveBeenCalledWith("value1");//verifie que on change est passé avec l'argument value 1
         expect(onChange.mock.calls.length).toBeGreaterThan(0);
 
         fireEvent(
@@ -81,6 +82,7 @@ describe("When a select is created", () => {
             cancelable: true,
           })
         );
+        expect(onChange).toHaveBeenCalledWith(null);//verifie que on change est passé avec l'argument null
         expect(onChange.mock.calls.length).toBeGreaterThan(1);
       });
     });
