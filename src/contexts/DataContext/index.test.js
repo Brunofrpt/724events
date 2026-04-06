@@ -170,7 +170,7 @@ describe("When a data context is created", () => {
         );
 
         const id = await screen.findByText("1")
-        expect(id.textContent).toBe("1");
+        expect(id.tex).toBe("1");
       });
     });
 
