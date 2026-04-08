@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import Slider from "./index";
 import { api, DataProvider } from "../../contexts/DataContext";
-
+import "@testing-library/jest-dom"
 const data = {
   focus: [
     {
@@ -37,8 +37,13 @@ describe("When slider is created", () => {
     );
     await screen.findByText("World economic forum");
     await screen.findByText("janvier");
-    await screen.findByText(
-      "Oeuvre à la coopération entre le secteur public et le privé."
-    );
+    await screen.findByText("Oeuvre à la coopération entre le secteur public et le privé.");
+
+    const activeSlide = document.querySelector(".SlideCard--display");
+    const hideSlide = document.querySelector(".SlideCard--hide");
+
+    expect(activeSlide).toBeInTheDocument();
+    expect(hideSlide).toBeInTheDocument();
+    expect(activeSlide).toHaveTextContent("Evenement mondial autour de la ferme")
   });
 });
